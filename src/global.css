@@ -1,0 +1,47 @@
+// Resente do documento base
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+
+  --gray-100: #f7f9fb; 
+  --gray-200: #F0F4F7;
+  --gray-300: #E1E9EE;
+  --gray-350: #D9E4EA;
+  --gray-400: #717C82;
+  --gray-300: #566166;
+  --gray-800: #2A3439;                    
+
+  --purple-100: #F3E8FF; 
+  --purple-500: #7C3AED;
+  --purple-600: #6D28D9;
+
+  --red-200: #ff8b9a;
+  --red-500:  #9e3f4e
+}
+
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+button {
+  cursor: pointer;
+}
