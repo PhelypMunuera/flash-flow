@@ -9,23 +9,23 @@
 :root {
   --white: #fff;
 
-  --gray-100: #f7f9fb; 
-  --gray-200: #F0F4F7;
-  --gray-300: #E1E9EE;
-  --gray-350: #D9E4EA;
-  --gray-400: #717C82;
+  --gray-100: #f7f9fb;
+  --gray-200: #f0f4f7;
+  --gray-300: #e1e9ee;
+  --gray-350: #d9e4ea;
+  --gray-400: #717c82;
   --gray-300: #566166;
-  --gray-800: #2A3439;                    
+  --gray-800: #2a3439;
 
-  --purple-100: #F3E8FF; 
-  --purple-500: #7C3AED;
-  --purple-600: #6D28D9;
+  --purple-100: #f3e8ff;
+  --purple-500: #7c3aed;
+  --purple-600: #6d28d9;
 
   --red-200: #ff8b9a;
-  --red-500:  #9e3f4e
+  --red-500: #9e3f4e;
+
+
 }
-
-
 
 body {
   -webkit-font-smoothing: antialiased;
