@@ -1,9 +1,10 @@
-import style from './style.module.css'
+import { type ReactNode } from "react";
+import style from "./style.module.css";
 
 type ButtonProps = {
-  text: string;
+  children: ReactNode;
 };
 
-export function Button({ text }: ButtonProps) {
-  return <button className={style.container}>{text}</button>;
+export function Button({ children }: ButtonProps) {
+  return <button className={style.container}>{children}</button>;
 }
