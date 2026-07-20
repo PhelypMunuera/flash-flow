@@ -1,25 +1,24 @@
+import { useState } from "react";
+import { categories } from "../consts";
 import style from "./style.module.css";
 
+const filterOptions = ['Tudo', ...categories];
+
 export function Filters() {
+  const [selectedFilter, setSelectedFilter] = useState<string>("Tudo");
+
   return (
-    <nav className={style.container}>
-      <ul>
-        <li className={style.selected}>
-          <a>Tudo</a>
+    <ul className={style.containerFilters}>
+      {filterOptions.map((filterOption) => (
+        <li
+        className={ selectedFilter === filterOption ? style.selected :  ''}
+          key={filterOption}
+          onClick={() => setSelectedFilter(filterOption)}
+        >
+          {filterOption}
         </li>
-        <li>
-          <a>JavaScript</a>
-        </li>
-        <li>
-          <a>React</a>
-        </li>
-        <li>
-          <a>Tailwind CSS</a>
-        </li>
-        <li>
-          <a>Node.js</a>
-        </li>
-      </ul>
-    </nav>
+
+      ))}
+    </ul>
   );
 }

@@ -1,12 +1,16 @@
-import './global.css'
-import { Header } from'./components/Header'
-import { Categories } from './components/Categories'
+import "./global.css";
+import { Header } from "./components/Header";
+import { FilterSection } from "./components/FilterSection";
 
 function App() {
-  return <>
-  <Header/>
-  <Categories/>
-  </>;
+  return (
+    <>
+      <Header />
+      <main>
+        <FilterSection />
+      </main>
+    </>
+  );
 }
 
 export default App;
