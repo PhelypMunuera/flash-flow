@@ -11,7 +11,7 @@ type FlashcardProps = {
 
 export function Flashcard({ card }: FlashcardProps) {
   return (
-    <article key={card.question} className={style.card}>
+    <article className={style.card}>
       <header className={style.cardHeader}>
         <span>{card.category.toUpperCase()}</span>
         <div className={style.actions}>
@@ -24,13 +24,15 @@ export function Flashcard({ card }: FlashcardProps) {
         </div>
       </header>
 
-      <div>
+      <div className={style.cardBody}>
         <p>{card.question}</p>
         <p>{card.answer}</p>
       </div>
-      <button>
-        <img src={reveleIcon} alt="Revelar Resposta" />
-      </button>
+      <footer className={style.cardFooter}>
+        <button >
+          <img src={reveleIcon} alt="Revelar Resposta" />
+        </button>
+      </footer>
     </article>
   );
 }

@@ -1,7 +1,9 @@
-import "./global.css";
 import { Header } from "./components/Header";
 import { FilterSection } from "./components/FilterSection";
 import { CardsSection } from "./components/CardsSection";
+
+import "./global.css";
+
 function App() {
   return (
     <>

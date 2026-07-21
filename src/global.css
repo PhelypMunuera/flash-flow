@@ -1,4 +1,4 @@
-// Resente do documento base
+ /* Resente do documento base */
 
 * {
   margin: 0;
@@ -14,7 +14,7 @@
   --gray-300: #e1e9ee;
   --gray-350: #d9e4ea;
   --gray-400: #717c82;
-  --gray-300: #566166;
+  --gray-500: #566166;
   --gray-800: #2a3439;
 
   --purple-100: #f3e8ff;
