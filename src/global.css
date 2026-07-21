@@ -23,8 +23,6 @@
 
   --red-200: #ff8b9a;
   --red-500: #9e3f4e;
-
-
 }
 
 body {
@@ -44,9 +42,10 @@ button {
 
 button {
   cursor: pointer;
-  border: none;
+  border: 0;
+  background: transparent;
+  line-height: 0;
 }
-
 
 ul {
   padding: 0;
@@ -54,9 +53,11 @@ ul {
 }
 
 main {
-  display:  flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-
 }
