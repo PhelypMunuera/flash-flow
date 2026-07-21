@@ -11,4 +11,10 @@
 
   border: none;
   border-radius: 9999px;
+
+  transition: all 0.1s linear;
+
+  &&:hover {
+    opacity: 0.8;
+  }
 }
