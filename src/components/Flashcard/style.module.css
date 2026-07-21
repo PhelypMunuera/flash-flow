@@ -1,0 +1,51 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(42, 52, 57, 0.06);
+  
+    .actions {
+      visibility: hidden;
+      display: flex;
+      gap: 0.25rem;
+      opacity: 0;
+      transition: all 0.2s linear;
+  
+      button {
+        background-color: transparent;
+        padding: 0.5rem;
+        transition: all 0.2s linear;
+        line-height: 0;
+  
+        &:hover {
+          background-color: var(--gray-200);
+          border-radius: 999px;
+        }
+      }
+     
+    }
+  
+   
+    &:hover .actions {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    span {
+      background-color: var(--gray-200);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-500);
+    }
+  }

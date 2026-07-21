@@ -1,4 +1,4 @@
-import type { CategoryType } from "../types/flashCards"
+import type { CategoryType } from "../types/flashcard"
 
 export const categories: CategoryType[] = [ 
     'JavaScript',
