@@ -1,19 +1,20 @@
-import { useState } from "react";
 import { categories } from "../consts";
 import style from "./style.module.css";
+import { useFilter } from "../../hooks/useFilter";
 
 const filterOptions = ['Tudo', ...categories];
 
 export function Filters() {
-  const [selectedFilter, setSelectedFilter] = useState<string>("Tudo");
+
+const {activeFilter, setActiveFilter} = useFilter()
 
   return (
     <ul className={style.containerFilters}>
       {filterOptions.map((filterOption) => (
         <li
-        className={ selectedFilter === filterOption ? style.selected :  ''}
+        className={ activeFilter === filterOption ? style.selected :  ''}
           key={filterOption}
-          onClick={() => setSelectedFilter(filterOption)}
+          onClick={() => setActiveFilter(filterOption)}
         >
           {filterOption}
         </li>

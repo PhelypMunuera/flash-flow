@@ -1,20 +1,24 @@
+import emptyImg from "../../assets/empty.svg";
+import { Flashcard } from "../Flashcard";
 import { Button } from "../Button";
 import { cards } from "./mock";
-import { Flashcard } from "../Flashcard";
-
-import emptyImg from "../../assets/empty.svg";
 
 import style from "./style.module.css";
+import { useFilter } from "../../hooks/useFilter";
 
 export function CardsSection() {
+  const { activeFilter } = useFilter();
   const hasSomeCard = Boolean(cards.length);
 
+  const filteredCads = activeFilter === "Tudo" ? cards
+      : cards.filter((card) => card.category === activeFilter);
+
   return hasSomeCard ? (
-    <div className={style.containerCardsGrid}>
-      {cards.map((card) => (
+    <section className={style.containerCardsGrid}>
+      {filteredCads.map((card) => (
         <Flashcard key={card.question} card={card} />
       ))}
-    </div>
+    </section>
   ) : (
     <div className={style.containerEmptyCardGrid}>
       <img src={emptyImg} alt="Vazio" />
