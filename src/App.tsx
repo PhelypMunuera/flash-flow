@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 import { FilterSection } from "./components/FilterSection";
 import { CardsSection } from "./components/CardsSection";
+import { FilterProvaider } from "./contexts/filter-context";
 
 import "./global.css";
 
@@ -9,8 +10,10 @@ function App() {
     <>
       <Header />
       <main>
-        <FilterSection />
-        <CardsSection />
+        <FilterProvaider>
+          <FilterSection />
+          <CardsSection />
+        </FilterProvaider>
       </main>
     </>
   );
