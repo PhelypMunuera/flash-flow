@@ -1,7 +1,7 @@
 import emptyImg from "../../assets/empty.svg";
 import { Flashcard } from "../Flashcard";
 import { Button } from "../Button";
-// import { cards } from "./mock";
+import { ModalDelete } from "../ModalDelete";
 
 import style from "./style.module.css";
 import { useFilter } from "../../hooks/useFilter";
@@ -24,6 +24,7 @@ export function CardsSection() {
         <Flashcard key={card.question} card={card} />
       ))}
       <AddNewFlashcard />
+      <ModalDelete/>
     </section>
   ) : (
     <div className={style.containerEmptyCardGrid}>
