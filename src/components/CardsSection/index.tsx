@@ -1,18 +1,22 @@
 import emptyImg from "../../assets/empty.svg";
 import { Flashcard } from "../Flashcard";
 import { Button } from "../Button";
-import { cards } from "./mock";
+// import { cards } from "./mock";
 
 import style from "./style.module.css";
 import { useFilter } from "../../hooks/useFilter";
 import { AddNewFlashcard } from "../AddNewFlashcard";
+import { useCardsBank } from "../../hooks/useCardsBanck";
 
 export function CardsSection() {
   const { activeFilter } = useFilter();
-  const hasSomeCard = Boolean(cards.length);
+  const { cardsBank } = useCardsBank();
 
-  const filteredCads = activeFilter === "Tudo" ? cards
-      : cards.filter((card) => card.category === activeFilter);
+
+  const hasSomeCard = Boolean(cardsBank.length);
+
+  const filteredCads = activeFilter === "Tudo" ? cardsBank
+      : cardsBank.filter((card) => card.category === activeFilter);
 
   return hasSomeCard ? (
     <section className={style.containerCardsGrid}>
