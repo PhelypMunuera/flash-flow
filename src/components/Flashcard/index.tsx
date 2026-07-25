@@ -1,3 +1,4 @@
+import { useState } from "react";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delite.svg";
 import reveleIcon from "../../assets/revel.svg";
@@ -10,6 +11,9 @@ type FlashcardProps = {
 };
 
 export function Flashcard({ card }: FlashcardProps) {
+  const [showAnswer, setShowAnswer] = useState<boolean>(false);
+
+  
   return (
     <article className={style.card}>
       <header className={style.cardHeader}>
@@ -24,12 +28,12 @@ export function Flashcard({ card }: FlashcardProps) {
         </div>
       </header>
 
-      <div className={style.cardBody}>
+      <div className={`${style.cardBody} ${!showAnswer && style.hidden}`}>
         <p>{card.question}</p>
-        <p>{card.answer}</p>
+        {showAnswer && <p>{card.answer}</p>  }
       </div>
       <footer className={style.cardFooter}>
-        <button >
+        <button onClick={() => setShowAnswer(!showAnswer)}>
           <img src={reveleIcon} alt="Revelar Resposta" />
         </button>
       </footer>
