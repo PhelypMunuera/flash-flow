@@ -5,6 +5,7 @@ import { cards } from "./mock";
 
 import style from "./style.module.css";
 import { useFilter } from "../../hooks/useFilter";
+import { AddNewFlashcard } from "../AddNewFlashcard";
 
 export function CardsSection() {
   const { activeFilter } = useFilter();
@@ -18,6 +19,7 @@ export function CardsSection() {
       {filteredCads.map((card) => (
         <Flashcard key={card.question} card={card} />
       ))}
+      <AddNewFlashcard />
     </section>
   ) : (
     <div className={style.containerEmptyCardGrid}>
