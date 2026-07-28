@@ -1,6 +1,6 @@
 import { createContext, useState, type ReactNode } from "react";
 import type { FlashcardType } from "../types/flashcard";
-import { cards } from "../components/CardsSection/mock";
+
 
 type FlashcardsContextType = {
   flashcards: FlashcardType[];
@@ -15,16 +15,23 @@ type FlashcardsProviderProps = {
 };
 
 function FlashcardsProvider({ children }: FlashcardsProviderProps) {
-  const [flashcards, setFlashcards] = useState<FlashcardType[]>(cards);
+  const [flashcards, setFlashcards] = useState<FlashcardType[]>(() => {
+    const storaged = localStorage.getItem('@flashcards')
+    console.log(storaged)
+    return storaged ? JSON.parse(storaged) : []
+  });
 
   function addFlashcard(flashcard: FlashcardType) {
     setFlashcards([...flashcards, flashcard])
+
+    localStorage.setItem('@flashcards', JSON.stringify([...flashcards, flashcard]))
   }
 
   function removeFlashcard(id: string) {
     const updatedFlashcards = flashcards.filter(flashcard => flashcard.id != id)
-
+    
     setFlashcards(updatedFlashcards)
+    localStorage.setItem('@flashcards', JSON.stringify([updatedFlashcards]))
   }
 
   return (
