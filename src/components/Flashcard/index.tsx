@@ -6,14 +6,16 @@ import reveleIcon from "../../assets/revel.svg";
 import style from "./style.module.css";
 import type { FlashcardType } from "../../types/flashcard";
 
+import { useFlashcards } from "../../hooks/useFlashcards";
+
 type FlashcardProps = {
   card: FlashcardType;
 };
 
 export function Flashcard({ card }: FlashcardProps) {
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
+  const { removeFlashcard } = useFlashcards();
 
-  
   return (
     <article className={style.card}>
       <header className={style.cardHeader}>
@@ -22,7 +24,7 @@ export function Flashcard({ card }: FlashcardProps) {
           <button>
             <img src={editIcon} alt="Editar" />
           </button>
-          <button>
+          <button onClick={() => removeFlashcard(card.id)}>
             <img src={deleteIcon} alt="Deletar" />
           </button>
         </div>
@@ -30,7 +32,7 @@ export function Flashcard({ card }: FlashcardProps) {
 
       <div className={`${style.cardBody} ${!showAnswer && style.hidden}`}>
         <p>{card.question}</p>
-        {showAnswer && <p>{card.answer}</p>  }
+        {showAnswer && <p>{card.answer}</p>}
       </div>
       <footer className={style.cardFooter}>
         <button onClick={() => setShowAnswer(!showAnswer)}>

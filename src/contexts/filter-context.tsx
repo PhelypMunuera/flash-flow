@@ -1,8 +1,10 @@
 import { createContext, useState, type ReactNode } from "react";
 
+
 type createContextType = {
-  activeFilter: string;
+  activeFilter: string ;
   setActiveFilter: (filter: string) => void;
+  
 };
 
 const FilterContext = createContext<createContextType | null>(null);
