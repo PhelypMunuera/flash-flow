@@ -6,22 +6,22 @@ import { ModalDelete } from "../ModalDelete";
 import style from "./style.module.css";
 import { useFilter } from "../../hooks/useFilter";
 import { AddNewFlashcard } from "../AddNewFlashcard";
-import { useCardsBank } from "../../hooks/useCardsBanck";
+import { useFlashcards } from "../../hooks/useFlashcards";
 
 export function CardsSection() {
   const { activeFilter } = useFilter();
-  const { cardsBank } = useCardsBank();
+  const { flashcards } = useFlashcards();
 
 
-  const hasSomeCard = Boolean(cardsBank.length);
+  const hasSomeCard = Boolean(flashcards.length);
 
-  const filteredCads = activeFilter === "Tudo" ? cardsBank
-      : cardsBank.filter((card) => card.category === activeFilter);
+  const filteredCads = activeFilter === "Tudo" ? flashcards
+      : flashcards.filter((card) => card.category === activeFilter);
 
   return hasSomeCard ? (
     <section className={style.containerCardsGrid}>
       {filteredCads.map((card) => (
-        <Flashcard key={card.question} card={card} />
+        <Flashcard key={card.id} card={card} />
       ))}
       <AddNewFlashcard />
       <ModalDelete/>

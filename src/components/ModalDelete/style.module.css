@@ -1,4 +1,6 @@
 .container {
+visibility: hidden ;
+
   background-color: var(--gray-900);
   backdrop-filter: blur(4px);
 
