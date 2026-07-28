@@ -10,6 +10,8 @@
     border: 2px dashed var(--gray-380);
     border-radius: 1rem;
 
+    min-height: 335px;
+
     div span {
     font-family:  'Manrope',sans-serif;
     font-size: 1.125rem;
