@@ -17,7 +17,7 @@
   --gray-400: #717c82;
   --gray-500: #566166;
   --gray-800: #2a3439;
-  --gray-900: rgba(11, 15, 16, 0.6);
+  --gray-900: rgba(11, 15, 16, 0.2);
 
 
   --purple-100: #f3e8ff;
@@ -29,10 +29,15 @@
   --red-500: #9e3f4e;
 }
 
+#root {
+  isolation: isolate;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   background-color: var(--gray-100);
   color: var(--gray-800);
+  position: relative;
 }
 
 body,

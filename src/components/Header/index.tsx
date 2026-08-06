@@ -1,5 +1,6 @@
 import logoImg from "../../assets/logoImg.svg";
 import { Button } from "../Button";
+import { DialogTrigger } from "../Dialog";
 import style from "./style.module.css";
 
 
@@ -11,7 +12,9 @@ export function Header() {
         <img src={logoImg} alt="my Logo" />
         <span>Flash Flow</span>
       </div>
-      <Button>Novo Flashcard</Button>
+      <DialogTrigger payload={'addCard'}>
+        <Button>Novo Flashcard</Button>
+      </DialogTrigger>
     </header>
   );
 }
