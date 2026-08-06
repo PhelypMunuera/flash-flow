@@ -5,8 +5,7 @@ import reveleIcon from "../../assets/revel.svg";
 
 import style from "./style.module.css";
 import type { FlashcardType } from "../../types/flashcard";
-
-import { useFlashcards } from "../../hooks/useFlashcards";
+import { DialogTrigger } from "../Dialog";
 
 type FlashcardProps = {
   card: FlashcardType;
@@ -14,19 +13,23 @@ type FlashcardProps = {
 
 export function Flashcard({ card }: FlashcardProps) {
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
-  const { removeFlashcard } = useFlashcards();
+ 
 
   return (
     <article className={style.card}>
       <header className={style.cardHeader}>
         <span>{card.category.toUpperCase()}</span>
         <div className={style.actions}>
+        <DialogTrigger payload={`edit-${card.id}`}>
           <button>
             <img src={editIcon} alt="Editar" />
           </button>
-          <button onClick={() => removeFlashcard(card.id)}>
-            <img src={deleteIcon} alt="Deletar" />
-          </button>
+        </DialogTrigger> 
+          <DialogTrigger payload={card.id}>
+            <button>
+              <img src={deleteIcon} alt="Deletar" />
+            </button>
+          </DialogTrigger> 
         </div>
       </header>
 

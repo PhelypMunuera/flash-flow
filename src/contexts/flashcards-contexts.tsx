@@ -4,8 +4,9 @@ import type { FlashcardType } from "../types/flashcard";
 
 type FlashcardsContextType = {
   flashcards: FlashcardType[];
-  addFlashcard: (flashcard: FlashcardType) => void
-  removeFlashcard: (id: string) => void
+  addFlashcard: (flashcard: FlashcardType) => void;
+  updateFlashcard: (flashcard: FlashcardType) => void;
+  removeFlashcard: (id: string) => void;
 };
 
 const FlashcardsContext = createContext<FlashcardsContextType | null>(null);
@@ -17,7 +18,7 @@ type FlashcardsProviderProps = {
 function FlashcardsProvider({ children }: FlashcardsProviderProps) {
   const [flashcards, setFlashcards] = useState<FlashcardType[]>(() => {
     const storaged = localStorage.getItem('@flashcards')
-    console.log(storaged)
+
     return storaged ? JSON.parse(storaged) : []
   });
 
@@ -27,17 +28,35 @@ function FlashcardsProvider({ children }: FlashcardsProviderProps) {
     localStorage.setItem('@flashcards', JSON.stringify([...flashcards, flashcard]))
   }
 
+  function updateFlashcard(updatedFlashcard: FlashcardType) {
+    setFlashcards((currentFlashcards) => {
+      const updatedFlashcards = currentFlashcards.map((flashcard) =>
+        flashcard.id === updatedFlashcard.id
+          ? updatedFlashcard
+          : flashcard
+      );
+
+      localStorage.setItem(
+        "@flashcards",
+        JSON.stringify(updatedFlashcards)
+      );
+
+      return updatedFlashcards;
+    });
+  }
+
   function removeFlashcard(id: string) {
     const updatedFlashcards = flashcards.filter(flashcard => flashcard.id != id)
     
     setFlashcards(updatedFlashcards)
-    localStorage.setItem('@flashcards', JSON.stringify([updatedFlashcards]))
+    localStorage.setItem('@flashcards', JSON.stringify(updatedFlashcards))
   }
 
   return (
     <FlashcardsContext.Provider value={{ 
       flashcards,
       addFlashcard,
+      updateFlashcard,
       removeFlashcard
     }}>
       {children}

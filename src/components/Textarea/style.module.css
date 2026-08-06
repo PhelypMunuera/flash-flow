@@ -1,0 +1,39 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+
+  span {
+    font-size: 0.625rem;
+    font-weight: 700;
+  }
+
+  div {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-380);
+
+    textarea {
+      width: 100%;
+      height: 116px;
+      border: none;
+      resize: none;
+      height: 4rem;
+    }:focus{
+      outline: none;
+    }
+
+    &.error {
+      border-color: var(--red-500);
+    }
+  }
+}
+
+.errorMessage {
+  font-size: 0.75rem;
+  color: var(--red-500);
+}
