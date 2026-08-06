@@ -1,6 +1,8 @@
 .formContainer {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  gap: 0.5rem;
   span {
     font-size: 0.625rem;
     font-weight: 700;
@@ -31,11 +33,19 @@
 
       cursor: pointer;
 
+      &.error {
+        border-color: var(--red-500);
+      }
     }
     :focus {
       outline: none;
     }
   }
+}
+
+.errorMessage {
+  font-size: 0.75rem;
+  color: var(--red-500);
 }
 
 /* 

@@ -1,4 +1,6 @@
 .formContainer {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   gap: 0.5rem;
 
@@ -24,5 +26,14 @@
     }:focus{
       outline: none;
     }
+
+    &.error {
+      border-color: var(--red-500);
+    }
   }
+}
+
+.errorMessage {
+  font-size: 0.75rem;
+  color: var(--red-500);
 }

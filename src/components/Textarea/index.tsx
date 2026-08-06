@@ -1,31 +1,45 @@
-
-import { useFormContext  } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import style from "./style.module.css";
 
 type InputProps = {
   purposeOfInput: string;
   placeholder?: string;
-  name: keyof FlashcardFormData
-  img: string
-  defaultValue?: string
-}
+  name: "quest" | "answer";
+  img: string;
+  defaultValue?: string;
+};
 
 type FlashcardFormData = {
   quest: string;
   answer: string;
 };
 
+export function Textarea({
+  purposeOfInput,
+  placeholder,
+  name,
+  img,
+  defaultValue,
+}: InputProps) {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<FlashcardFormData>();
 
-export function Textarea({purposeOfInput, placeholder, name, img, defaultValue}: InputProps) {
+  const error = errors[name];
 
-  const { register } = useFormContext<FlashcardFormData>()
- 
-  return(
+  return (
     <label className={style.formContainer}>
       <span>{purposeOfInput}</span>
-      <div>
+      <div className={error ? style.error : undefined}>
         <img src={img} alt="" />
-        <textarea defaultValue={defaultValue} placeholder={placeholder} {...register(name)} />
+        <textarea
+          defaultValue={defaultValue}
+          placeholder={placeholder}
+          {...register(name, { required: "Esse campo é obrigatório" })}
+        />
       </div>
+      {error && <span className={style.errorMessage}>{error.message}</span>}
     </label>
-)}
+  );
+}
